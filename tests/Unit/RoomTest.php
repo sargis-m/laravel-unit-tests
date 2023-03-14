@@ -20,7 +20,7 @@ class RoomTest extends TestCase
         $this->assertTrue($room->has("Jack")); // Expect true
         $this->assertFalse($room->has("Eric")); // Expect false
     }
-    
+
     /**
      * Test the add() method in Room class
      *
@@ -32,5 +32,10 @@ class RoomTest extends TestCase
         $this->assertContains("Peter", $room->add("Peter"));
     }
 
+    public function test_room_remove()
+    {
+        $room = new Room(["Jack", "Peter"]); // Create a new room
+        $this->assertCount(1, $room->remove("Peter"));
+    }
 
 }
